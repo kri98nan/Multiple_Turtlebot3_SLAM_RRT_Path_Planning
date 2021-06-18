@@ -87,9 +87,8 @@ Rviz
 ## Execution
 ### Setting up workspace
 ```
-cd catkin_ws/src
+cd catkin_ws
 git clone https://github.com/kri98nan/Multiple_Turtlebot3_SLAM_RRT_Path_Planning.git
-cd ..
 catkin_make
 ```
 ### Defining the turtlebot and sourcing
