@@ -116,4 +116,4 @@ After all the programs loaded publish the points in four corners of the map and 
 ## Working Video
 https://youtu.be/8phYOpBw0_I
 
-The project is still under development. Any changes made will be updated repository.
+The project is still under development. Any changes made will be updated in this repository.
