@@ -23,7 +23,32 @@ Because the robot may not always behave in a perfectly predictable way, it gener
 
 Particle Filter Localization ALgorithm:
 
+![Demo Image](https://github.com/kri98nan/Multiple_Turtlebot3_SLAM_RRT_Path_Planning/blob/main/Algorithm-of-particle-filter.png)
 
+### Mapping
+
+Robotic mapping is a discipline related to computer vision and cartography. The goal for an autonomous robot is to be able to construct (or use) a map (outdoor use) or floor plan (indoor use) and to localize itself and its recharging bases or beacons in it. Robotic leg is that branch which deals with the study and application of ability to localize itself in a map / plan and sometimes to construct the map or floor plan by the autonomous robot.
+
+Evolutionarily shaped blind action may suffice to keep some animals alive. For some insects for example, the environment is not interpreted as a map, and they survive only with a triggered response. A slightly more elaborated navigation strategy dramatically enhances the capabilities of the robot. Cognitive maps enable planning capacities and use of current perceptions, memorized events, and expected consequences.
+
+In this Project Occupancy Grid Mapping has been implied.
+
+#### Occupancy Grid Mapping
+
+Occupancy Grid Mapping refers to a family of computer algorithms in probabilistic robotics for mobile robots which address the problem of generating maps from noisy and uncertain sensor measurement data, with the assumption that the robot pose is known.
+
+The basic idea of the occupancy grid is to represent a map of the environment as an evenly spaced field of binary random variables each representing the presence of an obstacle at that location in the environment. Occupancy grid algorithms compute approximate posterior estimates for these random variables.
+
+There are four major components of occupancy grid mapping approach. They are:
+
+    1)Interpretation
+    2)Integration
+    3)Position estimation
+    4)Exploration
+ 
+Occupancy Grid Mapping Algorithm:
+
+![OCG_image](https://github.com/kri98nan/Multiple_Turtlebot3_SLAM_RRT_Path_Planning/blob/main/OCG.jpg)
 
 ## RRT Path Planning
 A rapidly exploring random tree (RRT) is an algorithm designed to efficiently search nonconvex, high-dimensional spaces by randomly building a space-filling tree. The tree is constructed incrementally from samples drawn randomly from the search space and is inherently biased to grow towards large unsearched areas of the problem. Algortihm for RRT as follows 
