@@ -68,4 +68,51 @@ Algorithm BuildRRT
         G.add_edge(qnear, qnew)
     return G
 ```
+An RRT grows a tree rooted at the starting configuration by using random samples from the search space. As each sample is drawn, a connection is attempted between it and the nearest state in the tree. If the connection is feasible (passes entirely through free space and obeys any constraints), this results in the addition of the new state to the tree. With uniform sampling of the search space, the probability of expanding an existing state is proportional to the size of its Voronoi region. As the largest Voronoi regions belong to the states on the frontier of the search, this means that the tree preferentially expands towards large unsearched areas.
+
+The length of the connection between the tree and a new state is frequently limited by a growth factor. If the random sample is further from its nearest state in the tree than this limit allows, a new state at the maximum distance from the tree along the line to the random sample is used instead of the random sample itself. The random samples can then be viewed as controlling the direction of the tree growth while the growth factor determines its rate. This maintains the space-filling bias of the RRT while limiting the size of the incremental growth.
+
+RRT growth can be biased by increasing the probability of sampling states from a specific area. Most practical implementations of RRTs make use of this to guide the search towards the planning problem goals. This is accomplished by introducing a small probability of sampling the goal to the state sampling procedure. The higher this probability, the more greedily the tree grows towards the goal.
+
+
+## Software Requirmenets
+Ubuntu 16.04 LTS
+
+ROS Kinetic
+
+Gazebo
+
+Rviz
+
+## Execution
+### Setting up workspace
+```
+cd catkin_ws/src
+git clone https://github.com/kri98nan/Multiple_Turtlebot3_SLAM_RRT_Path_Planning.git
+cd ..
+catkin_make
+```
+### Defining the turtlebot and sourcing
+```
+export TURTLEBOT3_MODEL=burger
+source devel/setup.bash
+```
+### Setting up Gazebo Environment
+```
+gnome-terminal --tab --title="test" --command="bash -c 'roslaunch turtlebot3_gazebo multi_turtlebot3.launch;source devel/setup.bash; export TURTLEBOT3_MODEL=burger; $SHELL'"
+```
+### Establishing Gmapping
+Note: Execute this command only after the gazebo is fully loaded
+```
+bash gmapping.sh
+```
+### RRT Path Planning
+```
+gnome-terminal --command="bash -c 'roslaunch rrt_exploration navigation.launch;source devel/setup.bash; export TURTLEBOT3_MODEL=burger; $SHELL'"
+```
+
+After all the programs loaded publish the points in four corners of the map and one inside the map to start RRT exploration.
+
+## Working Video
+https://youtu.be/8phYOpBw0_I
 
