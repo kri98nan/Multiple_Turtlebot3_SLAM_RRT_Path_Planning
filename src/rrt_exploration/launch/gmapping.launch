@@ -1,0 +1,27 @@
+<launch>
+
+<!-- Run the map server--> 
+<node name="map_server" pkg="map_server" type="map_server" args="$(find rrt_exploration)/map/map.yaml" >
+    <param name="frame_id" value="map" />
+</node>
+
+<include file="$(find rrt_exploration)/launch/gmap.launch">
+  <arg name="namespace"  default="tb3_0"/>
+</include>
+
+<include file="$(find rrt_exploration)/launch/gmap.launch">
+  <arg name="namespace"  default="tb3_1"/>
+</include>
+
+
+<include file="$(find rrt_exploration)/launch/gmap.launch">
+  <arg name="namespace"  default="tb3_2"/>
+</include>
+
+<include file="$(find rrt_exploration)/launch/multi_map_merge.launch"/>
+
+<!-- Launching Rviz -->
+
+<node name="rviz" pkg="rviz" type="rviz" args="-d $(find rrt_exploration)/rviz/multi_turtlebot3_slam.rviz" />
+
+</launch>
